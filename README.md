@@ -11,6 +11,8 @@ Profile Manager aims to ease the management of local provisioning profiles by pa
 
 If you have any improvement ideas, email taylan at hipolabs dot com, or even better, send a PR!
 
+![Profile Manager](screenshot.png?raw=true "Profile Manager")
+
 Download
 --------
 
