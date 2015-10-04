@@ -23,9 +23,11 @@ static NSString * const PMProfileCellIdentifier = @"PMProfileCell";
 @property (nonatomic, weak) IBOutlet NSTableView *tableView;
 @property (nonatomic, weak) IBOutlet NSButton *deleteButton;
 @property (nonatomic, weak) IBOutlet NSButton *reloadButton;
+@property (nonatomic, weak) IBOutlet NSSearchField *searchField;
 
 @property (nonatomic, strong) NSMutableArray *profiles;
 @property (nonatomic, strong) NSArray *sortDescriptors;
+@property (nonatomic, strong) NSPredicate *searchPredicateTemplate;
 
 - (void)loadProfiles;
 - (void)reloadAllProfiles;
@@ -34,6 +36,7 @@ static NSString * const PMProfileCellIdentifier = @"PMProfileCell";
 
 - (IBAction)didTapDeleteButton:(id)sender;
 - (IBAction)didTapReloadButton:(id)sender;
+- (IBAction)didChangeSearchKeywods:(id)sender;
 
 @end
 
@@ -45,6 +48,10 @@ static NSString * const PMProfileCellIdentifier = @"PMProfileCell";
     
     if (self) {
         _profiles = [NSMutableArray array];
+        _searchPredicateTemplate = [NSPredicate predicateWithFormat:
+                                    @"(name contains[cd] $searchString) or "
+                                    "(appName contains[cd] $searchString) or "
+                                    "(bundleIdentifier contains[cd] $searchString)"];
     }
     
     return self;
@@ -189,6 +196,18 @@ static NSString * const PMProfileCellIdentifier = @"PMProfileCell";
 }
 
 #pragma mark - Control actions
+
+- (void)didChangeSearchKeywods:(id)sender {
+    NSString *searchString = [_searchField stringValue];
+    NSPredicate *predicate = nil;
+    
+    if (searchString.length > 0) {
+        predicate = [_searchPredicateTemplate
+                     predicateWithSubstitutionVariables:@{@"searchString": searchString}];
+    }
+    
+    [_contentController setFilterPredicate:predicate];
+}
 
 - (void)didTapDeleteButton:(id)sender {
     NSArray *selectedObjects = [_contentController selectedObjects];

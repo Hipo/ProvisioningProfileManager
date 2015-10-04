@@ -9,6 +9,7 @@
                 <outlet property="contentController" destination="sKE-i5-Q5p" id="mmk-9H-bP0"/>
                 <outlet property="deleteButton" destination="lev-QE-7TS" id="sAm-9K-skJ"/>
                 <outlet property="reloadButton" destination="Zx1-nC-qPf" id="x3E-ug-sKh"/>
+                <outlet property="searchField" destination="ghW-ck-avP" id="Aak-z9-xGh"/>
                 <outlet property="tableView" destination="5K6-NX-Uxv" id="bdW-8Z-yGH"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
@@ -156,6 +157,9 @@
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </searchFieldCell>
+                        <connections>
+                            <action selector="didChangeSearchKeywods:" target="-2" id="CVY-ys-VYH"/>
+                        </connections>
                     </searchField>
                 </subviews>
             </view>
