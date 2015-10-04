@@ -11,6 +11,7 @@
 
 @interface PMProfile : NSObject
 
+@property (nonatomic, strong, readonly) NSString *name;
 @property (nonatomic, strong, readonly) NSString *teamName;
 @property (nonatomic, strong, readonly) NSString *appName;
 @property (nonatomic, strong, readonly) NSString *bundleIdentifier;

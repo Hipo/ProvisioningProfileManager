@@ -24,7 +24,8 @@
     _teamName = provisionInfo[@"TeamName"];
     _appName = provisionInfo[@"AppIDName"];
     _creationDate = provisionInfo[@"CreationDate"];
-    
+    _name = provisionInfo[@"Name"];
+
     NSString *appIdentifier = provisionInfo[@"Entitlements"][@"application-identifier"];
     
     if (appIdentifier) {

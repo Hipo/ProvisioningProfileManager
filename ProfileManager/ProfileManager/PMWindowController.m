@@ -64,7 +64,7 @@ static NSString * const PMProfileCellIdentifier = @"PMProfileCell";
             return profile.appName;
             break;
         case 1:
-            return profile.teamName;
+            return profile.name;
             break;
         case 2:
             return profile.bundleIdentifier;
