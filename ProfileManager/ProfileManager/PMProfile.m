@@ -21,10 +21,13 @@
     }
     
     _fileURL = [fileURL copy];
+    _name = provisionInfo[@"Name"];
     _teamName = provisionInfo[@"TeamName"];
     _appName = provisionInfo[@"AppIDName"];
     _creationDate = provisionInfo[@"CreationDate"];
-    _name = provisionInfo[@"Name"];
+    _formattedCreationDate = [NSDateFormatter localizedStringFromDate:_creationDate
+                                                            dateStyle:NSDateFormatterMediumStyle
+                                                            timeStyle:NSDateFormatterNoStyle];
 
     NSString *appIdentifier = provisionInfo[@"Entitlements"][@"application-identifier"];
     

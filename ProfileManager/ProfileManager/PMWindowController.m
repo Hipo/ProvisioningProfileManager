@@ -19,11 +19,13 @@ static NSString * const PMProfileCellIdentifier = @"PMProfileCell";
 
 @interface PMWindowController () <NSTableViewDataSource, NSTableViewDelegate>
 
+@property (nonatomic, weak) IBOutlet NSArrayController *contentController;
 @property (nonatomic, weak) IBOutlet NSTableView *tableView;
 @property (nonatomic, weak) IBOutlet NSButton *deleteButton;
 @property (nonatomic, weak) IBOutlet NSButton *reloadButton;
 
 @property (nonatomic, strong) NSMutableArray *profiles;
+@property (nonatomic, strong) NSArray *sortDescriptors;
 
 - (void)loadProfiles;
 - (void)reloadAllProfiles;
@@ -38,52 +40,47 @@ static NSString * const PMProfileCellIdentifier = @"PMProfileCell";
 
 @implementation PMWindowController
 
+- (instancetype)initWithWindowNibName:(NSString *)windowNibName {
+    self = [super initWithWindowNibName:windowNibName];
+    
+    if (self) {
+        _profiles = [NSMutableArray array];
+    }
+    
+    return self;
+}
+
 - (void)windowDidLoad {
     [super windowDidLoad];
     
-    [_tableView setDelegate:self];
-    [_tableView setDataSource:self];
-    
     [_deleteButton setEnabled:NO];
+    
+    [_contentController addObserver:self
+                         forKeyPath:@"selectedObjects"
+                            options:0
+                            context:nil];
     
     [self reloadAllProfiles];
 }
 
-#pragma mark - Table view data source
+#pragma mark - Observables
 
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    return [_profiles count];
-}
-
-- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    PMProfile *profile = _profiles[row];
-    NSInteger columnIndex = [tableView.tableColumns indexOfObject:tableColumn];
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary<NSString *,id> *)change
+                       context:(void *)context {
     
-    switch (columnIndex) {
-        case 0:
-            return profile.appName;
-            break;
-        case 1:
-            return profile.name;
-            break;
-        case 2:
-            return profile.bundleIdentifier;
-            break;
-        case 3:
-            return [NSDateFormatter localizedStringFromDate:profile.creationDate
-                                                  dateStyle:NSDateFormatterMediumStyle
-                                                  timeStyle:NSDateFormatterNoStyle];
-            break;
-        default:
-            return nil;
-            break;
+    if (object == _contentController) {
+        NSArray *selectedObjects = [_contentController selectedObjects];
+        
+        [_deleteButton setEnabled:(selectedObjects.count > 0)];
     }
 }
 
-- (void)tableViewSelectionDidChange:(NSNotification *)notification {
-    NSInteger selectedRowIndex = [_tableView selectedRow];
-    
-    [_deleteButton setEnabled:(selectedRowIndex != NSNotFound)];
+#pragma mark - Sorting
+
+- (NSArray *)sortDescriptors {
+    return _tableView.sortDescriptors;
 }
 
 #pragma mark - Loading
@@ -91,9 +88,7 @@ static NSString * const PMProfileCellIdentifier = @"PMProfileCell";
 - (void)reloadAllProfiles {
     [_reloadButton setEnabled:NO];
     
-    [_profiles removeAllObjects];
-    
-    [_tableView reloadData];
+    [_contentController removeObjects:_contentController.arrangedObjects];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         [self loadProfiles];
@@ -110,7 +105,7 @@ static NSString * const PMProfileCellIdentifier = @"PMProfileCell";
                                                              options:NSDirectoryEnumerationSkipsHiddenFiles
                                                         errorHandler:nil];
     
-    _profiles = [NSMutableArray array];
+    NSMutableArray *profiles = [NSMutableArray array];
     
     for (NSURL *fileURL in enumerator) {
         NSString *fileName;
@@ -121,15 +116,13 @@ static NSString * const PMProfileCellIdentifier = @"PMProfileCell";
         PMProfile *profile = [[PMProfile alloc] initWithProvisionInfo:profileData
                                                               fileURL:fileURL];
         
-        [_profiles addObject:profile];
+        [profiles addObject:profile];
     }
     
-    [_profiles sortUsingComparator:^NSComparisonResult(PMProfile *obj1, PMProfile *obj2) {
-        return [obj1.appName caseInsensitiveCompare:obj2.appName];
-    }];
-    
     dispatch_async(dispatch_get_main_queue(), ^{
-        [_tableView reloadData];
+        [_contentController addObjects:profiles];
+
+        [_tableView setSortDescriptors:@[[_tableView.tableColumns[0] sortDescriptorPrototype]]];
         
         [_reloadButton setEnabled:YES];
     });
@@ -198,31 +191,22 @@ static NSString * const PMProfileCellIdentifier = @"PMProfileCell";
 #pragma mark - Control actions
 
 - (void)didTapDeleteButton:(id)sender {
-    NSInteger selectedRowIndex = [_tableView selectedRow];
+    NSArray *selectedObjects = [_contentController selectedObjects];
 
-    if (selectedRowIndex == NSNotFound) {
+    if (selectedObjects.count == 0) {
         return;
     }
     
-    PMProfile *profile = _profiles[selectedRowIndex];
-    
-    if ([[NSFileManager defaultManager] removeItemAtURL:profile.fileURL error:nil]) {
-        [_profiles removeObject:profile];
-        
-        
-        [_tableView beginUpdates];
-        
-        [_tableView removeRowsAtIndexes:[NSIndexSet indexSetWithIndex:selectedRowIndex]
-                          withAnimation:NSTableViewAnimationEffectFade];
-        
-        [_tableView endUpdates];
-        
-        
-        [_deleteButton setEnabled:NO];
-    } else {
-        // TODO: Show error
-        NSLog(@">>> FAILED TO DELETE: %@", profile.bundleIdentifier);
+    for (PMProfile *profile in selectedObjects) {
+        if ([[NSFileManager defaultManager] removeItemAtURL:profile.fileURL error:nil]) {
+            [_contentController removeObject:profile];
+        } else {
+            // TODO: Show error
+            NSLog(@">>> FAILED TO DELETE: %@", profile.bundleIdentifier);
+        }
     }
+    
+    [_deleteButton setEnabled:NO];
 }
 
 - (void)didTapReloadButton:(id)sender {

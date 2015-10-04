@@ -17,6 +17,7 @@
 @property (nonatomic, strong, readonly) NSString *bundleIdentifier;
 @property (nonatomic, strong, readonly) NSString *teamIdentifier;
 @property (nonatomic, strong, readonly) NSDate *creationDate;
+@property (nonatomic, strong, readonly) NSString *formattedCreationDate;
 @property (nonatomic, strong, readonly) NSURL *fileURL;
 
 - (instancetype)initWithProvisionInfo:(NSDictionary *)provisionInfo

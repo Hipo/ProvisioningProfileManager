@@ -6,12 +6,19 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PMWindowController">
             <connections>
+                <outlet property="contentController" destination="sKE-i5-Q5p" id="mmk-9H-bP0"/>
                 <outlet property="deleteButton" destination="lev-QE-7TS" id="sAm-9K-skJ"/>
                 <outlet property="reloadButton" destination="Zx1-nC-qPf" id="x3E-ug-sKh"/>
                 <outlet property="tableView" destination="5K6-NX-Uxv" id="bdW-8Z-yGH"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
+        <arrayController objectClassName="PMProfile" selectsInsertedObjects="NO" avoidsEmptySelection="NO" automaticallyRearrangesObjects="YES" id="sKE-i5-Q5p">
+            <connections>
+                <binding destination="-2" name="contentArray" keyPath="profiles" id="dJm-Gy-9dO"/>
+                <binding destination="-2" name="sortDescriptors" keyPath="sortDescriptors" id="TU8-Fp-zmo"/>
+            </connections>
+        </arrayController>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="Profile Manager" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
@@ -28,7 +35,7 @@
                             <rect key="frame" x="1" y="17" width="658" height="399"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="1uX-kM-rLm" viewBased="YES" id="5K6-NX-Uxv">
+                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="1uX-kM-rLm" viewBased="YES" id="5K6-NX-Uxv">
                                     <rect key="frame" x="0.0" y="0.0" width="658" height="399"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
@@ -47,7 +54,11 @@
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
+                                            <sortDescriptor key="sortDescriptorPrototype" selector="caseInsensitiveCompare:" sortKey="appName"/>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                            <connections>
+                                                <binding destination="sKE-i5-Q5p" name="value" keyPath="arrangedObjects.appName" id="GZ9-qS-2Sv"/>
+                                            </connections>
                                         </tableColumn>
                                         <tableColumn width="200" minWidth="40" maxWidth="1000" id="Q9q-gH-dDg">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Profile Name">
@@ -60,7 +71,11 @@
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
+                                            <sortDescriptor key="sortDescriptorPrototype" selector="caseInsensitiveCompare:" sortKey="name"/>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                            <connections>
+                                                <binding destination="sKE-i5-Q5p" name="value" keyPath="arrangedObjects.name" id="C5w-S6-rXV"/>
+                                            </connections>
                                         </tableColumn>
                                         <tableColumn width="200" minWidth="40" maxWidth="1000" id="J81-NX-1A8">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Bundle Identifier">
@@ -73,7 +88,11 @@
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
+                                            <sortDescriptor key="sortDescriptorPrototype" selector="caseInsensitiveCompare:" sortKey="bundleIdentifier"/>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                            <connections>
+                                                <binding destination="sKE-i5-Q5p" name="value" keyPath="arrangedObjects.bundleIdentifier" id="LsW-9q-duG"/>
+                                            </connections>
                                         </tableColumn>
                                         <tableColumn identifier="" width="106" minWidth="10" maxWidth="3.4028234663852886e+38" id="ymW-xo-A28">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Created">
@@ -86,7 +105,11 @@
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
+                                            <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="creationDate"/>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                            <connections>
+                                                <binding destination="sKE-i5-Q5p" name="value" keyPath="arrangedObjects.formattedCreationDate" id="eZd-4e-cW2"/>
+                                            </connections>
                                         </tableColumn>
                                     </tableColumns>
                                 </tableView>
@@ -126,6 +149,14 @@
                             <action selector="didTapDeleteButton:" target="-2" id="hhw-yF-Ujv"/>
                         </connections>
                     </button>
+                    <searchField wantsLayer="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ghW-ck-avP">
+                        <rect key="frame" x="20" y="19" width="435" height="22"/>
+                        <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="Rzn-en-aG5">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </searchFieldCell>
+                    </searchField>
                 </subviews>
             </view>
             <connections>
@@ -133,5 +164,6 @@
             </connections>
             <point key="canvasLocation" x="415" y="390"/>
         </window>
+        <userDefaultsController representsSharedInstance="YES" id="JNS-kM-gud"/>
     </objects>
 </document>
