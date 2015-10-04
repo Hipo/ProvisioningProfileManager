@@ -24,6 +24,8 @@
     _mainWindowController = [[PMWindowController alloc] initWithWindowNibName:@"PMWindowController"];
     
     [_mainWindowController showWindow:nil];
+    
+    [NSApp activateIgnoringOtherApps:YES];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {

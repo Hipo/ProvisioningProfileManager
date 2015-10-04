@@ -14,8 +14,6 @@
 		EC045AEB1BBC9294008B8259 /* PMProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = EC045AEA1BBC9294008B8259 /* PMProfile.m */; settings = {ASSET_TAGS = (); }; };
 		EC045AEF1BBC9443008B8259 /* PMWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC045AED1BBC9443008B8259 /* PMWindowController.m */; settings = {ASSET_TAGS = (); }; };
 		EC045AF01BBC9443008B8259 /* PMWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC045AEE1BBC9443008B8259 /* PMWindowController.xib */; settings = {ASSET_TAGS = (); }; };
-		ECFD62151BC14164004C7410 /* PMTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECFD62141BC14164004C7410 /* PMTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
-		ECFD62181BC1418F004C7410 /* PMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFD62171BC1418F004C7410 /* PMTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,9 +29,6 @@
 		EC045AEC1BBC9443008B8259 /* PMWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMWindowController.h; sourceTree = "<group>"; };
 		EC045AED1BBC9443008B8259 /* PMWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMWindowController.m; sourceTree = "<group>"; };
 		EC045AEE1BBC9443008B8259 /* PMWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMWindowController.xib; sourceTree = "<group>"; };
-		ECFD62141BC14164004C7410 /* PMTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMTableViewCell.xib; sourceTree = "<group>"; };
-		ECFD62161BC1418F004C7410 /* PMTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMTableViewCell.h; sourceTree = "<group>"; };
-		ECFD62171BC1418F004C7410 /* PMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +72,6 @@
 				EC045AEC1BBC9443008B8259 /* PMWindowController.h */,
 				EC045AED1BBC9443008B8259 /* PMWindowController.m */,
 				EC045AEE1BBC9443008B8259 /* PMWindowController.xib */,
-				ECFD62141BC14164004C7410 /* PMTableViewCell.xib */,
-				ECFD62161BC1418F004C7410 /* PMTableViewCell.h */,
-				ECFD62171BC1418F004C7410 /* PMTableViewCell.m */,
 			);
 			path = ProfileManager;
 			sourceTree = "<group>";
@@ -150,7 +142,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECFD62151BC14164004C7410 /* PMTableViewCell.xib in Resources */,
 				EC045ADE1BBC86B1008B8259 /* Assets.xcassets in Resources */,
 				EC045AF01BBC9443008B8259 /* PMWindowController.xib in Resources */,
 				EC045AE11BBC86B1008B8259 /* MainMenu.xib in Resources */,
@@ -165,7 +156,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC045AEF1BBC9443008B8259 /* PMWindowController.m in Sources */,
-				ECFD62181BC1418F004C7410 /* PMTableViewCell.m in Sources */,
 				EC045AEB1BBC9294008B8259 /* PMProfile.m in Sources */,
 				EC045ADC1BBC86B1008B8259 /* main.m in Sources */,
 				EC045AD91BBC86B1008B8259 /* AppDelegate.m in Sources */,
