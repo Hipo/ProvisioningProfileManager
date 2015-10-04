@@ -1,0 +1,318 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EC045AD91BBC86B1008B8259 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC045AD81BBC86B1008B8259 /* AppDelegate.m */; };
+		EC045ADC1BBC86B1008B8259 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC045ADB1BBC86B1008B8259 /* main.m */; };
+		EC045ADE1BBC86B1008B8259 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC045ADD1BBC86B1008B8259 /* Assets.xcassets */; };
+		EC045AE11BBC86B1008B8259 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC045ADF1BBC86B1008B8259 /* MainMenu.xib */; };
+		EC045AEB1BBC9294008B8259 /* PMProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = EC045AEA1BBC9294008B8259 /* PMProfile.m */; settings = {ASSET_TAGS = (); }; };
+		EC045AEF1BBC9443008B8259 /* PMWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC045AED1BBC9443008B8259 /* PMWindowController.m */; settings = {ASSET_TAGS = (); }; };
+		EC045AF01BBC9443008B8259 /* PMWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC045AEE1BBC9443008B8259 /* PMWindowController.xib */; settings = {ASSET_TAGS = (); }; };
+		ECFD62151BC14164004C7410 /* PMTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECFD62141BC14164004C7410 /* PMTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		ECFD62181BC1418F004C7410 /* PMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECFD62171BC1418F004C7410 /* PMTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EC045AD41BBC86B1008B8259 /* ProfileManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProfileManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC045AD71BBC86B1008B8259 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EC045AD81BBC86B1008B8259 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EC045ADB1BBC86B1008B8259 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EC045ADD1BBC86B1008B8259 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EC045AE01BBC86B1008B8259 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		EC045AE21BBC86B1008B8259 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC045AE91BBC9294008B8259 /* PMProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMProfile.h; sourceTree = "<group>"; };
+		EC045AEA1BBC9294008B8259 /* PMProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMProfile.m; sourceTree = "<group>"; };
+		EC045AEC1BBC9443008B8259 /* PMWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMWindowController.h; sourceTree = "<group>"; };
+		EC045AED1BBC9443008B8259 /* PMWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMWindowController.m; sourceTree = "<group>"; };
+		EC045AEE1BBC9443008B8259 /* PMWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMWindowController.xib; sourceTree = "<group>"; };
+		ECFD62141BC14164004C7410 /* PMTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMTableViewCell.xib; sourceTree = "<group>"; };
+		ECFD62161BC1418F004C7410 /* PMTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMTableViewCell.h; sourceTree = "<group>"; };
+		ECFD62171BC1418F004C7410 /* PMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMTableViewCell.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EC045AD11BBC86B1008B8259 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EC045ACB1BBC86B1008B8259 = {
+			isa = PBXGroup;
+			children = (
+				EC045AD61BBC86B1008B8259 /* ProfileManager */,
+				EC045AD51BBC86B1008B8259 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EC045AD51BBC86B1008B8259 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC045AD41BBC86B1008B8259 /* ProfileManager.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC045AD61BBC86B1008B8259 /* ProfileManager */ = {
+			isa = PBXGroup;
+			children = (
+				EC045AD71BBC86B1008B8259 /* AppDelegate.h */,
+				EC045AD81BBC86B1008B8259 /* AppDelegate.m */,
+				EC045ADD1BBC86B1008B8259 /* Assets.xcassets */,
+				EC045ADF1BBC86B1008B8259 /* MainMenu.xib */,
+				EC045AE21BBC86B1008B8259 /* Info.plist */,
+				EC045ADA1BBC86B1008B8259 /* Supporting Files */,
+				EC045AE91BBC9294008B8259 /* PMProfile.h */,
+				EC045AEA1BBC9294008B8259 /* PMProfile.m */,
+				EC045AEC1BBC9443008B8259 /* PMWindowController.h */,
+				EC045AED1BBC9443008B8259 /* PMWindowController.m */,
+				EC045AEE1BBC9443008B8259 /* PMWindowController.xib */,
+				ECFD62141BC14164004C7410 /* PMTableViewCell.xib */,
+				ECFD62161BC1418F004C7410 /* PMTableViewCell.h */,
+				ECFD62171BC1418F004C7410 /* PMTableViewCell.m */,
+			);
+			path = ProfileManager;
+			sourceTree = "<group>";
+		};
+		EC045ADA1BBC86B1008B8259 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EC045ADB1BBC86B1008B8259 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EC045AD31BBC86B1008B8259 /* ProfileManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC045AE51BBC86B2008B8259 /* Build configuration list for PBXNativeTarget "ProfileManager" */;
+			buildPhases = (
+				EC045AD01BBC86B1008B8259 /* Sources */,
+				EC045AD11BBC86B1008B8259 /* Frameworks */,
+				EC045AD21BBC86B1008B8259 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ProfileManager;
+			productName = ProfileManager;
+			productReference = EC045AD41BBC86B1008B8259 /* ProfileManager.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EC045ACC1BBC86B1008B8259 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = Hipo;
+				TargetAttributes = {
+					EC045AD31BBC86B1008B8259 = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = W9875NV3WF;
+					};
+				};
+			};
+			buildConfigurationList = EC045ACF1BBC86B1008B8259 /* Build configuration list for PBXProject "ProfileManager" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EC045ACB1BBC86B1008B8259;
+			productRefGroup = EC045AD51BBC86B1008B8259 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EC045AD31BBC86B1008B8259 /* ProfileManager */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EC045AD21BBC86B1008B8259 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECFD62151BC14164004C7410 /* PMTableViewCell.xib in Resources */,
+				EC045ADE1BBC86B1008B8259 /* Assets.xcassets in Resources */,
+				EC045AF01BBC9443008B8259 /* PMWindowController.xib in Resources */,
+				EC045AE11BBC86B1008B8259 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EC045AD01BBC86B1008B8259 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC045AEF1BBC9443008B8259 /* PMWindowController.m in Sources */,
+				ECFD62181BC1418F004C7410 /* PMTableViewCell.m in Sources */,
+				EC045AEB1BBC9294008B8259 /* PMProfile.m in Sources */,
+				EC045ADC1BBC86B1008B8259 /* main.m in Sources */,
+				EC045AD91BBC86B1008B8259 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EC045ADF1BBC86B1008B8259 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC045AE01BBC86B1008B8259 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EC045AE31BBC86B2008B8259 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		EC045AE41BBC86B2008B8259 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		EC045AE61BBC86B2008B8259 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ProfileManager/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hipo.ProfileManager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EC045AE71BBC86B2008B8259 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ProfileManager/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hipo.ProfileManager;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EC045ACF1BBC86B1008B8259 /* Build configuration list for PBXProject "ProfileManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC045AE31BBC86B2008B8259 /* Debug */,
+				EC045AE41BBC86B2008B8259 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC045AE51BBC86B2008B8259 /* Build configuration list for PBXNativeTarget "ProfileManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC045AE61BBC86B2008B8259 /* Debug */,
+				EC045AE71BBC86B2008B8259 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EC045ACC1BBC86B1008B8259 /* Project object */;
+}
