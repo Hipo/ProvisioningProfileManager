@@ -124,7 +124,9 @@ static NSString * const PMProfileCellIdentifier = @"PMProfileCell";
         [_profiles addObject:profile];
     }
     
-    [_profiles sortUsingSelector:@selector(appName)];
+    [_profiles sortUsingComparator:^NSComparisonResult(PMProfile *obj1, PMProfile *obj2) {
+        return [obj1.appName caseInsensitiveCompare:obj2.appName];
+    }];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [_tableView reloadData];
