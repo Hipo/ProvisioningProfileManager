@@ -127,11 +127,11 @@ static NSString * const PMProfileCellIdentifier = @"PMProfileCell";
     }
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        [_contentController addObjects:profiles];
+        [self->_contentController addObjects:profiles];
 
-        [_tableView setSortDescriptors:@[[_tableView.tableColumns[0] sortDescriptorPrototype]]];
+        [self->_tableView setSortDescriptors:@[[self->_tableView.tableColumns[0] sortDescriptorPrototype]]];
         
-        [_reloadButton setEnabled:YES];
+        [self->_reloadButton setEnabled:YES];
     });
 }
 
